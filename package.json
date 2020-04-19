@@ -1,0 +1,24 @@
+{
+  "name": "aws-s3bucket-nodejs",
+  "version": "1.0.0",
+  "description": "AWS S3 Bucket Nodejs uploading project",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js "
+  },
+  "author": "Kartik Tyagi",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.656.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-session": "^1.17.0",
+    "mv": "^2.1.1",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7"
+  }
+}
