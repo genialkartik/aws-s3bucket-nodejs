@@ -1,0 +1,80 @@
+<html>
+<% if(tag == 'get') { %>
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+ 
+<div class="deleteFile">
+    <form action="/deleteFile" method="POST">
+        <input type="submit" name="deleteFile" value="Delete" id="">
+    </form>
+</div>
+
+ <div class="container col-sm-12" id="mainform">
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                                     
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Upload Image</div>
+            </div> 
+            <div class="panel-body" >
+                <form class="form-horizontal" role="form" method="post" action="/uploadpic" enctype="multipart/form-data">
+                   
+                        <div class="alert alert col-sm-12"></div>
+                    
+                        <div class="form-group">
+                            <label for="image" class="col-md-3 control-label">Profile Image</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="file" name="profile" accept="" multiple/>
+                            </div>
+                        </div>                                
+                    <div class="form-group">
+                        <!-- Button -->                                       
+                        <div class="col-md-offset-3 col-md-9">
+                            <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Upload</button>
+                        </div>
+                    </div>  
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+<style>
+    .imglist ul li{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        float: left;
+        list-style: none;
+    }
+    .imgl{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        float: left;
+    }
+</style>
+<br>
+<p>Display Images:</p><br>
+<% if(dlist.length){ %>
+<div class="imglist">
+    <ul>
+<% for(var i = 0; i<dlist.length; i++){ %>
+    <li>
+        <img class="imgl" src="https://ethicallearner-bucket.s3.amazonaws.com/<%=dlist[i].Key%>" alt="">
+    </li>
+</div>
+<% } %>
+</ul>
+<% }else{ %>
+    <div class="imglist">
+    <img src="https://ethicallearner-bucket.s3.amazonaws.com/<%=dlist.Key%>" alt="">
+    </div>
+<% } %>
+<br>
+<% } else { for(var i=0; i<temp.length; i++){ %>
+    <div>
+        <p>Post UPload:</p>
+        <p><%= temp[i].name %></p></div>
+<% }} %>
+</html>
